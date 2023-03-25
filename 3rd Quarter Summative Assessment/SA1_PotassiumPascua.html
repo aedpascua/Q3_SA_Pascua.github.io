@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Toss coin</title>
+  <!-- provide the necessary meta tags -->
+  <style>
+    body {
+      background: navy;
+      text-align: center;
+      font-family: arial;
+      color: white;
+    }
+
+    button {
+      padding: 10px;
+      background: violet
+    }
+
+    span {
+      color: yellow
+    }
+
+    #coin,
+    h5 {
+      color: yellow;
+    }
+
+    #coin {
+      background: gray;
+      width: 25px;
+      height: 25px;
+      padding: 25px;
+      border: 5px dashed darkgray;
+      border-radius: 50%;
+      margin: 0 auto;
+
+    }
+  </style>
+
+</head>
+
+<body onload="getGuess()">
+  <h1> Heads or Tail? </h1>
+  <!-- clicking "Click here to change your Guess:" triggers/calls the getGuess function --> 
+  <h2 onclick="getGuess()"> Click here to change your Guess: <span id="guess"> </span></h2>
+  <h2 id="coin"></span></h2>
+  <h5> Click on the coin above to randomly change its face and compare with your guess </h5>
+
+
+  <script>
+    /* do not forget to include comments to this script */
+    var getGuess = function () {
+
+      var comGuess = 0;
+      var uGuess;
+    /* var uGuess prompts the user to input his/her choice */
+      uGuess = prompt("Type H for head and T for tail", "H");
+      uGuess.toUpperCase; // converting to an uppercase letter
+      /* alerts the user if input is not included in the prompt values */
+      (uGuess != "H" && uGuess != "T") ? alert("Wrong Input") :
+        guess.innerHTML = uGuess;
+      /* gets a random decimal from 0(included) to <1(excluding 1) then multiplying it by 100 to get a whole number, then rounding the number to remove decimal points, then defining whether the number has a remainder or no remainder, to be used later to identify whether computerGuess is Heads or Tail */
+      comGuess = (Math.random() * 100).toFixed(0) % 2;
+      if (comGuess == 0) {
+        comGuess = "H";
+        document.getElementById("coin").innerHTML = "H";
+      } else {
+        document.getElementById("coin").innerHTML = "T";
+         comGuess = "T";
+      }
+    /* Determines whether uGuess is equal to comGuess to execute the following codes */
+      if(uGuess == comGuess){
+        alert("You are correct");
+      } else {
+        alert("You are not correct");
+      }
+    }
+
+  </script>
+</body>
+
+</html>

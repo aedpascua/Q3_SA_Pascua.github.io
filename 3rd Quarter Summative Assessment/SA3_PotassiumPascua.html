@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Choose Background Color</title>
+		<!-- provide the necessary meta tags -->
+        <style>
+        	* { box-sizing: border-box; 
+            	font-family: arial; 
+                color: white;
+            }           
+            body {background:navy}
+            ul {
+            	list-style-type: none;
+                width: 100px;
+                padding: 0;
+                border: 1px solid black;
+                background: gray;
+            }
+            li {width: 100%;
+            	border-bottom: 1px solid black;
+                padding: 5px;
+            }
+            li:nth-child(3) {border:none}
+            a {	text-decoration:none;
+            	display:block;
+                width: 100%;
+            }
+            li:nth-child(1):hover {background:purple}
+            li:nth-child(2):hover {background:navy}
+            li:nth-child(3):hover {background:maroon}
+            
+        </style>
+
+	</head>
+	<body class = "choice">
+		<h2> Choose Background Color </h2>
+        <ul>
+          <!-- calling function changeBackgroundColor from script using Javascript: -->
+        	<li><a href="Javascript: changeBackgroundColor('purple');"> Purple </a></li>
+            <li><a href="Javascript: changeBackgroundColor('Navy')"> Navy </a></li>
+            <li><a href="Javascript: changeBackgroundColor('Maroon')"> Maroon </a></li>
+        </ul>
+		
+
+        <script>
+            /* do not forget to include comments to this script */
+            /* color inside the parentheses of function changeBackgroundColor(color) calls the specific background color when button link is clicked*/
+          function changeBackgroundColor(color){
+            /*querySelector is used rather than getElementById to use CSS selectors*/
+            document.querySelector('.choice').style.backgroundColor = color;
+          }
+
+        </script>
+	</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Numerology</title>
+  <!-- provide the necessary meta tags -->
+  <style>
+    body {
+      background: lightblue;
+      text-align: center;
+      font-family: arial;
+      color: navy;
+    }
+
+    button {
+      padding: 10px;
+      background: violet
+    }
+
+    span {
+      font-size: 0.5em;
+      color: maroon
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1> Your Fortune is in your name </h1>
+  <h2> Your Name is: <span id="thename"> </span></h2>
+  <h2> Today's fortune: <span id="fortune"> </span></h2>
+
+  <button onclick="enterYourName()"> Click here to enter your name </button>
+  <script>
+    /* do not forget to include comments in your answer */
+    var inputname;
+    var namelength;
+    function enterYourName() {
+      inputname = prompt("Please input your full name", "");
+      document.getElementById("thename").innerHTML = inputname;
+      namelength = inputname.length;
+      var fortunenumber;
+
+        /* takes the last digit of the number of characters */
+	  fortunenumber1 = namelength % 10;
+	  /* takes the first number of the number of characters*/
+        fortunenumber2 = Math.floor(namelength / 10);
+
+        fortunenumber = fortunenumber1 + fortunenumber2;
+
+	/* for fortunenumbers greater than 10, a do while loop is used to reduce the number to two digits, to get the first and last digit to be added */ 
+      if(fortunenumber > 10){
+        do {
+        fortunenumber1 = fortunenumber % 10;
+        fortunenumber2 = Math.floor(fortunenumber / 10);
+
+        fortunenumber = fortunenumber1 + fortunenumber2;
+        }
+          while (fortunenumber > 10);
+          
+        }
+	/* results of each fortunenumber in representation of a case e.g. fortunenumber = 1; case 1, fortune = "You're gonna be poor" */
+      switch (fortunenumber) {
+        case 1:
+          fortune = "You're gonna be poor";
+          break;
+        case 2:
+          fortune = "You're gonna be rich";
+          break;
+        case 3:
+          fortune = "You're gonna be short";
+          break;
+        case 4:
+          fortune = "You're gonna be tall";
+          break;
+        case 5:
+          fortune = "Flat one sa stats";
+          break;
+        case 6:
+          fortune = "Flat 5 sa stats";
+          break;
+        case 7:
+          fortune = "Maging kayo na";
+          break;
+        case 8:
+          fortune = "Miss mo parin siya";
+          break;
+        case 9:
+          fortune = "You're gonna be eaten by a lion tommorow";
+          break;
+        case 10:
+          fortune = "You're gonna breathe air tommorow";
+          break;
+        default:
+          fortune = "You are special";
+      }
+      document.getElementById("fortune").innerHTML = fortune;
+    }
+
+  </script>
+
+</body>
+
+</html>

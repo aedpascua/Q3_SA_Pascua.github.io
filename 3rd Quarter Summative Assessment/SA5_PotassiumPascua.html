@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> My Online Shop</title>
+  <!-- type in the necessary meta tags -->
+  <style>
+    span {
+      color: blue;
+      text-decoration: underline
+    }
+
+    button {
+      width: 100px padding: 5px;
+      background: pink;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Name of online shop -->
+  <h1> Faster Food </h1>
+  <h1> Welcome to My Online Shop </h1>
+  <h2> Please select from the following items </h2>
+  <!--- provide your own 3 items and their prices in the list --->
+  <!-- three items provided by the shop -->
+  <ol>
+    <li> Bunny Burger price: Php 100.00 </li>
+    <li> Dehydrated Juice price: Php 30.00 </li>
+    <li> Philippine fries price: Php 50.00 </li>
+  </ol>
+  <!-- the following will be used to display purchase information -->
+  <p> Item selected : <span id="item"> </span> </p>
+  <p> Qty bought : <span id="qty"> </span> </p>
+  <p> Amount to pay for the item: <span id="bill"> </span> </p>
+  <p> Current Total Bill <span id="bill2"> </span> </p>
+  <!-- triggers the orderAnItem function -->
+  <button onclick="orderAnItem()"> Buy an Item </button>
+  <!-- triggers the clearOrder fucntion -->
+  <button onclick="clearOrder()"> Clear </button>
+
+  <script>
+
+	<!--- some variables placed outside the function to avoid redecleration of values --->
+      var bill = 0;
+      var bill2 = 0;
+
+    function orderAnItem() {
+    	<!--- prompts the user to input the selected item by encoding the item's number --->
+      var order = prompt("Please input the item's number you would like to order", "");
+      document.getElementById("item").innerHTML = order;
+	<!-- prompts the user to input the number of quantities of the item selected-->
+      var qty = Number(prompt("Please enter the quantity of your order",""));
+	<!-- verifies whether input is a number or not-->
+      if (isNaN(qty)) {
+        alert("Please input a number");
+	<!-- redeclares prompt of input quantity of item selected-->
+        var qty = parseInt(prompt("Please enter the quantity of your order", ""));
+        document.getElementById("qty").innerHTML = qty;
+      } else {
+	<!-- outputs quantity if initial input is a number -->
+        document.getElementById("qty").innerHTML = qty;
+      }
+	<!-- gives price to the item's number selected -->
+      switch (order) {
+        case "1":
+          price = 100;
+          break;
+        case "2":
+          price = 30;
+          break;
+        case "3":
+          price = 50;
+          break;
+        default:
+          price = 0;
+      }
+	<!-- gives the bill of the quantity multiplied by the item's price (in switch statements) -->
+      bill = price * qty;
+      document.getElementById("bill").innerHTML = "Php " + bill;
+      <!-- gives the total bill of the following orders whilst function clearOrder is not triggered -->
+      bill2 = bill2 + bill;
+      document.getElementById("bill2").innerHTML = "Php " + bill2;
+    }
+    <!-- Reloads everything when triggered -->
+    function clearOrder() {
+      location.reload();
+    }
+
+  </script>
+</body>
+
+</html>
